@@ -1,0 +1,69 @@
+{
+  "name": "@nectain/n8n-nodes-nectain",
+  "version": "0.1.0",
+  "description": "n8n community nodes for the Nectain REST API.",
+  "license": "MIT",
+  "homepage": "https://github.com/Nectain/n8n-nodes-nectain#readme",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "nectain",
+    "document management"
+  ],
+  "author": {
+    "name": "Nectain",
+    "email": "integrations@nectain.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nectain/n8n-nodes-nectain.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/Nectain/n8n-nodes-nectain/issues"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "N8N_DIAGNOSTICS_ENABLED=false N8N_VERSION_NOTIFICATIONS_ENABLED=false N8N_VERSION_NOTIFICATIONS_WHATS_NEW_ENABLED=false N8N_TEMPLATES_ENABLED=false N8N_DYNAMIC_BANNERS_ENABLED=false N8N_VERIFIED_PACKAGES_ENABLED=false N8N_DISABLED_MODULES=mcp-registry n8n-node dev",
+    "lint": "n8n-node lint && eslint -c eslint.project.config.mjs --max-warnings=0 .",
+    "lint:fix": "eslint -c eslint.project.config.mjs --fix . && n8n-node lint --fix",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "node --import tsx --test \"./test/**/[!_]*.cts\"",
+    "test:coverage": "c8 node --import tsx --test \"./test/**/[!_]*.cts\"",
+    "release": "n8n-node release",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/NectainApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Nectain/Nectain.node.js"
+    ]
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "0.52.4",
+    "@types/node": "^24.19.2",
+    "c8": "^12.0.0",
+    "eslint": "^9.39.5",
+    "eslint-plugin-jsdoc": "^65.3.6",
+    "eslint-plugin-jsonc": "^3.4.2",
+    "eslint-plugin-security": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^14.0.0",
+    "neostandard": "^0.14.1",
+    "release-it": "^21.1.1",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3"
+  }
+}

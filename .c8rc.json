@@ -1,0 +1,7 @@
+{
+  "all": true,
+  "src": ["nodes", "credentials"],
+  "include": ["nodes/**", "credentials/**"],
+  "reporter": ["lcovonly", "text-summary"],
+  "reports-dir": "coverage"
+}
