@@ -1,6 +1,6 @@
 {
   "name": "@nectain/n8n-nodes-nectain",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n community nodes for the Nectain REST API.",
   "license": "MIT",
   "homepage": "https://github.com/Nectain/n8n-nodes-nectain#readme",
