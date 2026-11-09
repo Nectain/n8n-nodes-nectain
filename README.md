@@ -45,7 +45,9 @@ or outputs it as `error` when the node's **On Error** setting continues.
   or takes the `attributes` object of the API as JSON, which also sets a hyperlink with its own caption.
   A mapped reference is sent by ID when its value is a number and by code otherwise;
   multiple references are a comma-separated list of such values.
-  A participant is a role and a person by login name or an organization unit by code.
+  A participant is a role and a person by login name,
+  or a role and an organization unit by code and object type:
+  organization, department, position, or executor group.
 - **Get**: a document by ID.
 - **Download File**: the primary file of a document as binary data.
 - **Replace File**: the primary file of a document, from an input binary field.

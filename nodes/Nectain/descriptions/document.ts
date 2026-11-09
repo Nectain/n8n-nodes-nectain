@@ -132,15 +132,13 @@ export const documentFields: INodeProperties[] = [
         name: 'participant',
         values: [
           {
-            displayName: 'Role Name or ID',
-            name: 'role',
-            type: 'options',
-            typeOptions: {
-              loadOptionsMethod: 'getRoles',
-              loadOptionsDependsOn: ['documentType.value']
-            },
+            displayName: 'Code',
+            name: 'code',
+            type: 'string',
             default: '',
-            description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>'
+            placeholder: 'e.g. finance-dept',
+            description: 'The code of the organization unit',
+            displayOptions: {show: {kind: ['organizationObject']}}
           },
           {
             displayName: 'Kind',
@@ -162,13 +160,29 @@ export const documentFields: INodeProperties[] = [
             displayOptions: {show: {kind: ['principal']}}
           },
           {
-            displayName: 'Code',
-            name: 'code',
-            type: 'string',
-            default: '',
-            placeholder: 'e.g. finance-dept',
-            description: 'The code of the organization unit',
+            displayName: 'Object Type',
+            name: 'objectType',
+            type: 'options',
+            options: [
+              {name: 'Department', value: 'department'},
+              {name: 'Executor Group', value: 'executorGroup'},
+              {name: 'Organization', value: 'organization'},
+              {name: 'Position', value: 'position'}
+            ],
+            default: 'department',
+            description: 'The type of the organization unit, because a code identifies a unit only within its type',
             displayOptions: {show: {kind: ['organizationObject']}}
+          },
+          {
+            displayName: 'Role Name or ID',
+            name: 'role',
+            type: 'options',
+            typeOptions: {
+              loadOptionsMethod: 'getRoles',
+              loadOptionsDependsOn: ['documentType.value']
+            },
+            default: '',
+            description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>'
           }
         ]
       }

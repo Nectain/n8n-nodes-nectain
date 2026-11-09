@@ -19,6 +19,7 @@ interface Participant {
   kind: 'principal' | 'organizationObject'
   name?: string
   code?: string
+  objectType?: string
 }
 
 interface CreateFields {
@@ -179,10 +180,10 @@ function toParticipants (entries: Participant[]): IDataObject | undefined {
   }
 
   const participants: Record<string, IDataObject[]> = {}
-  for (const {role, kind, name, code} of entries) {
+  for (const {role, kind, name, code, objectType} of entries) {
     const participant = kind === 'principal'
       ? {kind, name}
-      : {kind, code}
+      : {kind, code, objectType}
     participants[role] = [...(participants[role] ?? []), participant]
   }
 

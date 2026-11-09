@@ -142,7 +142,7 @@ describe('Document Create', () => {
     })
   })
 
-  it('sends an organization unit participant by code', async () => {
+  it('sends an organization unit participant by code with its object type', async () => {
     const {requests} = await run({
       ...CREATE,
       participants: {
@@ -150,13 +150,14 @@ describe('Document Create', () => {
           role: 'approver',
           kind: 'organizationObject',
           name: '',
-          code: 'finance-dept'
+          code: 'finance-dept',
+          objectType: 'department'
         }]
       }
     }, [jsonResponse(DOCUMENT, 201)])
 
     assert.deepEqual(bodyOf(requests[0]).participants, {
-      approver: [{kind: 'organizationObject', code: 'finance-dept'}]
+      approver: [{kind: 'organizationObject', code: 'finance-dept', objectType: 'department'}]
     })
   })
 
