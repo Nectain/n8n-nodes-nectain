@@ -37,8 +37,14 @@
     "prepublishOnly": "n8n-node prerelease"
   },
   "auto-changelog": {
+    "commitLimit": false,
     "commitUrl": "https://github.com/Nectain/n8n-nodes-nectain/commit/{id}",
     "compareUrl": "https://github.com/Nectain/n8n-nodes-nectain/compare/{from}...{to}"
+  },
+  "release-it": {
+    "github": {
+      "releaseNotes": "npx auto-changelog --stdout --commit-limit false --hide-credit -p --unreleased-only"
+    }
   },
   "files": [
     "dist"
