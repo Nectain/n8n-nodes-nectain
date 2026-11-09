@@ -118,15 +118,6 @@ export const recognitionJobFields: INodeProperties[] = [
     displayOptions: showFor(['start'])
   },
   {
-    displayName: 'Auto Create Document',
-    name: 'autoCreateDocument',
-    type: 'boolean',
-    default: true,
-    description: 'Whether to create the document after a successful recognition. ' +
-      'When off, the result holds the extracted data.',
-    displayOptions: showFor(['start'])
-  },
-  {
     displayName: 'Wait for Completion',
     name: 'waitForCompletion',
     type: 'boolean',
@@ -158,6 +149,14 @@ export const recognitionJobFields: INodeProperties[] = [
     default: {},
     displayOptions: showFor(['start']),
     options: [
+      {
+        displayName: 'Auto Create Document',
+        name: 'autoCreateDocument',
+        type: 'boolean',
+        default: true,
+        description: 'Whether to create the document after a successful recognition. ' +
+          'When off, the result holds the extracted data.'
+      },
       idempotencyKeyOption('starting another recognition'),
       {
         displayName: 'Name',

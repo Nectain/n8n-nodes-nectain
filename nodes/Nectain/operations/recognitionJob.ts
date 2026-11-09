@@ -20,6 +20,7 @@ interface JobFilters {
 }
 
 interface StartOptions {
+  autoCreateDocument?: boolean
   name?: string
   idempotencyKey?: string
 }
@@ -31,7 +32,7 @@ async function start (this: IExecuteFunctions, itemIndex: number): Promise<INode
   const json = jobJson({
     template: toReference(template),
     files: [{contentPart: FILE_PART}],
-    autoCreateDocument: this.getNodeParameter('autoCreateDocument', itemIndex) as boolean,
+    autoCreateDocument: options.autoCreateDocument ?? true,
     name: options.name
   })
   const multipart = await jsonWithFile(this, itemIndex, binaryPropertyName, 'job', json)

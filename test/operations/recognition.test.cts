@@ -75,7 +75,6 @@ const START = {
     cachedResultName: 'Invoices'
   },
   binaryPropertyName: 'data',
-  autoCreateDocument: true,
   waitForCompletion: false,
   options: {}
 }
@@ -196,12 +195,15 @@ describe('Recognition Job Start', () => {
     ])
   })
 
-  it('sends the name, the template by ID, and the idempotency key', async () => {
+  it('sends the options, the template by ID, and the idempotency key', async () => {
     const {requests} = await run({
       ...START,
       template: {__rl: true, mode: 'id', value: '3000000101'},
-      autoCreateDocument: false,
-      options: {name: 'March invoices', idempotencyKey: 'invoices-2026-03'}
+      options: {
+        autoCreateDocument: false,
+        name: 'March invoices',
+        idempotencyKey: 'invoices-2026-03'
+      }
     }, [
       jsonResponse(startedJob(3000000501, 'March invoices'), 201)
     ], [

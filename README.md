@@ -13,7 +13,7 @@ n8n community nodes for the Nectain REST API.
 ## Installation
 
 In n8n, open **Settings** → **Community nodes**, select **Install**,
-and enter `n8n-nodes-nectain`.
+and enter `@nectain/n8n-nodes-nectain`.
 See the [n8n community nodes installation guide](https://docs.n8n.io/integrations/community-nodes/installation/)
 for self-hosted and queue mode setups.
 
@@ -61,7 +61,7 @@ or outputs it as `error` when the node's **On Error** setting continues.
 
 - **Start**: the recognition of the file of an input binary field with a recognition template.
   Each input item starts its own job.
-  **Auto Create Document** creates the document after a successful recognition;
+  The **Auto Create Document** option, on by default, creates the document after a successful recognition;
   when it is off, the result holds the extracted data.
 - **Get**: a job by ID.
 - **Get Many**: the jobs, filtered by **Status**, **Is Group**, **Is Multi-Document**, and **Template**,
