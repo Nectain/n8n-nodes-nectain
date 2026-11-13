@@ -192,7 +192,6 @@ describe('attribute fields', () => {
         field('dueDate', 'Due Date', 'dateTime'),
         field('paid', 'Paid', 'boolean'),
         field('subject', 'Subject', 'string'),
-        field('notes', 'Notes', 'string'),
         field('contract', 'Contract', 'string'),
         field('supplier', 'Supplier', 'string'),
         field('approvers', 'Approvers', 'string')

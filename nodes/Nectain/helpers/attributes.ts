@@ -25,11 +25,11 @@ export type AttributeTypeCache = Map<string, Map<string, string>>
 
 /**
  * The attribute data types a document can be created with through a mapped field.
- * `collection`, `file`, and `fileCollection` values are not set in a document creation request.
+ * The server rejects `richText` values in a document creation request;
+ * `collection`, `file`, and `fileCollection` values are not set in it either.
  */
 const FIELD_TYPES = new Map<string, FieldType>([
   ['text', 'string'],
-  ['richText', 'string'],
   ['number', 'number'],
   ['dateTime', 'dateTime'],
   ['boolean', 'boolean'],
