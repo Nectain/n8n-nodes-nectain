@@ -3,6 +3,8 @@ import {existsSync, readdirSync} from 'node:fs'
 import path from 'node:path'
 import {describe, it} from 'node:test'
 
+import {Nectain} from '../nodes/Nectain/Nectain.node.js'
+import codex from '../nodes/Nectain/Nectain.node.json'
 import packageJson from '../package.json'
 
 const root = path.resolve(__dirname, '..')
@@ -48,5 +50,11 @@ describe('package.json n8n section', () => {
       sources.filter(file => !registeredSources.includes(file)),
       []
     )
+  })
+})
+
+describe('Nectain codex file', () => {
+  it('names the node type with the npm package name as the prefix', () => {
+    assert.equal(codex.node, `${packageJson.name}.${new Nectain().description.name}`)
   })
 })

@@ -12,7 +12,7 @@ export const BASE_URL = 'https://nectain.example.com'
 export const NODE: INode = {
   id: '6f1a2b3c-4d5e-4f60-8a7b-9c0d1e2f3a4b',
   name: 'Nectain',
-  type: 'n8n-nodes-nectain.nectain',
+  type: '@nectain/n8n-nodes-nectain.nectain',
   typeVersion: 1,
   position: [0, 0],
   parameters: {}
